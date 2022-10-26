@@ -55,3 +55,19 @@ steps:
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
 
+- task: DockerInstaller@0
+  inputs:
+    dockerVersion: '17.09.0-ce'
+
+- task: Docker@2
+  inputs:
+    containerRegistry: 'docker-lab'
+    command: 'login'
+
+- task: Docker@2
+  inputs:
+    containerRegistry: 'docker-lab'
+    repository: 'pguerra-final-job-devsecopsv4 / spring-boot-kubernetes'
+    command: 'build'
+    Dockerfile: '**/Dockerfile'
+    tags: 'latest'
