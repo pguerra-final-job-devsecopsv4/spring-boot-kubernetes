@@ -57,12 +57,12 @@ steps:
 
 - task: Docker@2
   inputs:
-    containerRegistry: 'docker-lab'
+    containerRegistry: 'Docker'
     command: 'login'
 
 - task: Docker@2
   inputs:
-    containerRegistry: 'docker-lab'
+    containerRegistry: 'Docker'
     repository: 'pguerra-final-job-devsecopsv4 / spring-boot-kubernetes'
     command: 'build'
     Dockerfile: '**/Dockerfile'
