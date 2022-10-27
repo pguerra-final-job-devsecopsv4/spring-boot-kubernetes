@@ -7,7 +7,7 @@
 #- master
 
 pool:
-   steps:
+steps:
 
 
 - task: Maven@4
