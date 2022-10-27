@@ -10,7 +10,7 @@ pool:
   vmImage: ubuntu-latest
 stages:
 - stage: Container_Security
-   jobs:
+jobs:
 -  job: Container_Security
    displayName: 'Container Security'
    steps:
