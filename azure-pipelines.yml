@@ -10,7 +10,7 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-
+#STAGE SAST
 - task: Maven@4
   inputs:
     mavenPomFile: 'pom.xml'
@@ -42,6 +42,7 @@ steps:
     sonarQubeGradlePluginVersion: '3.3'
     spotBugsAnalysis: false
 
+#STAGE SCA
 - task: dependency-check-build-task@6
   inputs:
     projectName: 'scan-librerias'
@@ -49,7 +50,7 @@ steps:
     format: 'HTML'
 
 
-
+# STAGE Container Securiyty
 - task: DockerInstaller@0
   inputs:
     dockerVersion: '17.09.0-ce'
