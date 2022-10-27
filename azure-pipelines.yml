@@ -24,3 +24,10 @@ stages:
         mavenAuthenticateFeed: false
         effectivePomSkip: false
         sonarQubeRunAnalysis: false
+    - task: SonarCloudPrepare@1
+      inputs:
+        SonarCloud: 'sonarcloud'
+        organization: 'pguerra-final-job-devsecopsv4'
+        scannerMode: 'MSBuild'
+        projectKey: 'pguerra-final-job-devsecopsv4_spring-boot-kubernetes'
+        projectName: 'spring-boot-kubernetes'
