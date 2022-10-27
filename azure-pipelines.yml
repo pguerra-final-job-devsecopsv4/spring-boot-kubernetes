@@ -1,10 +1,6 @@
 pool:
   vmImage: ubuntu-latest
-stages:
-- stage: Test
-  jobs:
-  - job: test
-    steps:
+steps:
 #STAGE SAST
 - task: Maven@4
   inputs:
@@ -25,11 +21,7 @@ stages:
     projectKey: 'pguerra-final-job-devsecopsv4_spring-boot-kubernetes'
     projectName: 'spring-boot-kubernetes'
 
-stages:
-- stage: Test1
-  jobs:
-  - job: test1
-    steps:
+
 - task: Maven@4
   inputs:
     gradleWrapperFile: 'gradlew'
@@ -44,11 +36,6 @@ stages:
 
 #STAGE SCA
 
-stages:
-- stage: Test2
-  jobs:
-  - job: test2
-    steps:
 - task: dependency-check-build-task@6
   inputs:
     projectName: 'scan-librerias'
