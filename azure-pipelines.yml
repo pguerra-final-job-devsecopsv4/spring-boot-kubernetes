@@ -31,3 +31,15 @@ stages:
         scannerMode: 'MSBuild'
         projectKey: 'pguerra-final-job-devsecopsv4_spring-boot-kubernetes'
         projectName: 'spring-boot-kubernetes'
+
+    - task: Maven@4
+      inputs:
+        gradleWrapperFile: 'gradlew'
+        tasks: 'sonarqube'
+        publishJUnitResults: true
+        testResultsFiles: '**/TEST-*.xml'
+        javaHomeOption: 'JDKVersion'
+        sonarQubeRunAnalysis: true
+        sqGradlePluginVersionChoice: 'specify'
+        sonarQubeGradlePluginVersion: '3.3'
+        spotBugsAnalysis: false
