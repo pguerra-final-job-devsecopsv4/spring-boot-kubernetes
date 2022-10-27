@@ -13,7 +13,7 @@ stages:
   jobs:
   - job: SAST
     displayName: 'SAST'
-steps: 
+    steps: 
 
 - task: Maven@4
   inputs:
