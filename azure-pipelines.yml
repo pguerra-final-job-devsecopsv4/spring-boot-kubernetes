@@ -6,11 +6,6 @@
 #trigger:
 #- master
 
-stages: 
-- stage: "buildStage"
-  jobs: 
-  - job: "BuildJob"
-
 pool:
   vmImage: ubuntu-latest
 
