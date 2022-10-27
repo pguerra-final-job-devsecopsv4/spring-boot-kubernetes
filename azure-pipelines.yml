@@ -48,14 +48,13 @@ steps:
     projectName: 'scan-librerias'
     scanPath: '**/*.java'
     format: 'HTML'
-
+stages:
 - stage: Container_Security
 jobs:
 -  job: Container_Security
    displayName: 'Container Security'
    steps: 
 
-   
 
 - task: DockerInstaller@0
   inputs:
