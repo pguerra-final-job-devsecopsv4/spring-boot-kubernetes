@@ -14,7 +14,6 @@ stages:
   - job: SAST
     displayName: 'SAST'
     steps:
-      
 
 - task: Maven@4
   inputs:
@@ -26,24 +25,3 @@ stages:
     mavenAuthenticateFeed: false
     effectivePomSkip: false
     sonarQubeRunAnalysis: false
-
-- task: SonarCloudPrepare@1
-  inputs:
-    SonarCloud: 'sonarcloud'
-    organization: 'pguerra-final-job-devsecopsv4'
-    scannerMode: 'MSBuild'
-    projectKey: 'pguerra-final-job-devsecopsv4_spring-boot-kubernetes'
-    projectName: 'spring-boot-kubernetes'
-
-
-- task: Maven@4
-  inputs:
-    gradleWrapperFile: 'gradlew'
-    tasks: 'sonarqube'
-    publishJUnitResults: true
-    testResultsFiles: '**/TEST-*.xml'
-    javaHomeOption: 'JDKVersion'
-    sonarQubeRunAnalysis: true
-    sqGradlePluginVersionChoice: 'specify'
-    sonarQubeGradlePluginVersion: '3.3'
-    spotBugsAnalysis: false
