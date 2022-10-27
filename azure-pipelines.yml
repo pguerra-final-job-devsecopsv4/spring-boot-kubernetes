@@ -115,11 +115,3 @@ stages:
         sudo dpkg -i trivy_0.27.1_Linux-64bit.deb
         trivy image pguerra-final-job-devsecopsv4/spring-boot-kubernetes:latest
       displayName: Image Scan
-
-    - task: Docker@2
-      inputs:
-        containerRegistry: 'Docker'
-        repository: 'pguerra-final-job-devsecopsv4/spring-boot-kubernetes/spring-boot-kubernetes'
-        command: 'push'
-        tags: 'latest'
-
