@@ -71,6 +71,6 @@ steps:
 - task: Docker@2
   inputs:
     containerRegistry: 'Docker'
-    repository: 'patowagen/spring-boot-kubernetes'
+    repository: 'pguerra-final-job-devsecopsv4/spring-boot-kubernetes/spring-boot-kubernetes'
     command: 'push'
     tags: 'latest'
