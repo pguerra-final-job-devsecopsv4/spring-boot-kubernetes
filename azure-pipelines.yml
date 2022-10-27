@@ -16,11 +16,6 @@ pool:
 
 steps:
 
-stages:
-- stage: Container_Security
-  jobs:
--  job: Container_Security
-   displayName: 'Container Security'
 - task: Maven@4
   inputs:
     mavenPomFile: 'pom.xml'
