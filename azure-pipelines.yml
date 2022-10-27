@@ -91,7 +91,7 @@ stages:
     - script: find $(Build.SourcesDirectory) -name "*.jar"
     - task: dependency-check-build-task@6
       inputs:
-        projectName: 'spring-boot-kubernetes'
+        projectName: 'scan-librerias'
         scanPath: '$(Build.SourcesDirectory)/target'
         format: 'ALL'
         reportsDirectory: '$(Build.SourcesDirectory)/dependency'
