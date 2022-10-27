@@ -3,26 +3,13 @@
 #steps:
 #STAGE SAST
 trigger:
-
 - main
 
 
 
 pool:
+   vmImage: ubuntu-latest
 
-  vmImage: ubuntu-latest
-
-stages:
-
-- stage: SAST 
-
-  jobs:
-
-  - job: build
-
-    displayName: 'Build'
-
-    steps:
 - task: Maven@4
   inputs:
     mavenPomFile: 'pom.xml'
