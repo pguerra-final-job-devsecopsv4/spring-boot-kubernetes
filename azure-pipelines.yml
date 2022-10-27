@@ -1,6 +1,9 @@
 pool:
   vmImage: ubuntu-latest
-
+stages:
+- stage: Test
+jobs:
+- job: test
 steps:
 #STAGE SAST
 - task: Maven@4
