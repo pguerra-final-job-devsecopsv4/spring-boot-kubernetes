@@ -27,7 +27,7 @@ stages:
     effectivePomSkip: false
     sonarQubeRunAnalysis: false
 
-- task: SonarCloudPrepare@1
+ - task: SonarCloudPrepare@1
   inputs:
     SonarCloud: 'sonarcloud'
     organization: 'pguerra-final-job-devsecopsv4'
