@@ -36,6 +36,19 @@ steps:
 
 #STAGE SCA
 
+- task: Maven@4
+  inputs:
+    mavenPomFile: 'pom.xml'
+    publishJUnitResults: true
+    testResultsFiles: '**/surefire-reports/TEST-*.pdf'
+    javaHomeOption: 'JDKVersion'
+    mavenVersionOption: 'Default'
+    mavenAuthenticateFeed: false
+    effectivePomSkip: false
+    sonarQubeRunAnalysis: false
+
+
+
 - task: dependency-check-build-task@6
   inputs:
     projectName: 'scan-librerias'
@@ -44,6 +57,19 @@ steps:
 
 
 # STAGE Container Securiyty
+
+- task: Maven@4
+  inputs:
+    mavenPomFile: 'pom.xml'
+    publishJUnitResults: true
+    testResultsFiles: '**/surefire-reports/TEST-*.pdf'
+    javaHomeOption: 'JDKVersion'
+    mavenVersionOption: 'Default'
+    mavenAuthenticateFeed: false
+    effectivePomSkip: false
+    sonarQubeRunAnalysis: false
+
+
 - task: DockerInstaller@0
   inputs:
     dockerVersion: '17.09.0-ce'
