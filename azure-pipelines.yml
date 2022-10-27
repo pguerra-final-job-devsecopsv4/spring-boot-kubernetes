@@ -78,7 +78,7 @@ steps:
     sonarQubeRunAnalysis: false
 
 
-- task: DockerInstaller@
+- task: DockerInstaller@0
   inputs:
     dockerVersion: '17.09.0-ce'
 
