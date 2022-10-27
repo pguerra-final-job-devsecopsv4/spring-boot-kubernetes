@@ -104,7 +104,7 @@ stages:
           exit 1;
         fi;
 
-
+###########################################################################################
 #    - task: dependency-check-build-task@6
 #      inputs:
 #        projectName: 'scan-librerias'
