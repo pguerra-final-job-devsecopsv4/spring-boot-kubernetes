@@ -52,6 +52,8 @@ stages:
       inputs:
         SonarCloud: 'sonarcloud'
         organization: 'pguerra-final-job-devsecopsv4'
+
+###########################################################################
 #    - task: Maven@4
 #      inputs:
 #        gradleWrapperFile: 'gradlew'
@@ -63,7 +65,7 @@ stages:
 #        sqGradlePluginVersionChoice: 'specify'
 #        sonarQubeGradlePluginVersion: '3.3'
 #        spotBugsAnalysis: false
-        
+#        
 #########################################################################
 
 
@@ -86,15 +88,29 @@ stages:
         mavenAuthenticateFeed: false
         effectivePomSkip: false
         sonarQubeRunAnalysis: false
-
-
-
+    - script: find $(Build.SourcesDirectory) -name "*.jar"
     - task: dependency-check-build-task@6
       inputs:
-        projectName: 'scan-librerias'
-        scanPath: '$(Pipeline.Workspace)'
-        format: 'HTML'
+        projectName: 'spring-boot-kubernetes'
+        scanPath: '$(Build.SourcesDirectory)/target'
+        format: 'ALL'
+        reportsDirectory: '$(Build.SourcesDirectory)/dependency'
+    - script: |
+        variable=$(grep ",HIGH," $(Build.SourcesDirectory)/dependency/dependency-check-report.csv | wc -l)
+        echo $variable "HIGH Vulnerabilities detected with dependency-check"
+        if [ $variable -gt 0 ];
+        then 
+          echo "Stop pipeline execution because dependency check detected" $variable " > 0 HIGH Vulnerabilities"
+          exit 1;
+        fi;
 
+
+#    - task: dependency-check-build-task@6
+#      inputs:
+#        projectName: 'scan-librerias'
+#        scanPath: '$(Pipeline.Workspace)'
+#        format: 'HTML'
+###########################################################################################
 # STAGE Container Securiyty
 
 - stage: ContainerSecurity 
