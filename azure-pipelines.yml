@@ -13,9 +13,10 @@ stages:
   jobs:
   - job: SAST
     displayName: 'SAST'
-
-- task: Maven@4
-  inputs:
+    steps:
+    - task: Maven@4
+    inputs:
+    variables:
     mavenPomFile: 'pom.xml'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
