@@ -6,12 +6,21 @@
 #trigger:
 #- master
 
+stages: 
+- stage: "buildStage"
+  jobs: 
+  - job: "BuildJob"
+
 pool:
   vmImage: ubuntu-latest
 
 steps:
 
-
+stages:
+- stage: Container_Security
+  jobs:
+-  job: Container_Security
+   displayName: 'Container Security'
 - task: Maven@4
   inputs:
     mavenPomFile: 'pom.xml'
