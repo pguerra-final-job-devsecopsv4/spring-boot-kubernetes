@@ -69,7 +69,7 @@ stages:
     - task: dependency-check-build-task@6
       inputs:
         projectName: 'scan-librerias'
-        scanPath: '**/*.java'
+        scanPath: '$(Pipeline.Workspace)'
         format: 'HTML'
 
 # STAGE Container Securiyty
