@@ -49,6 +49,12 @@ steps:
 
 #STAGE SCA
 
+- stage: SCA 
+  jobs:
+  - job: SCA
+    displayName: 'SCA'
+    steps:
+
 - task: Maven@4
   inputs:
     mavenPomFile: 'pom.xml'
@@ -70,6 +76,12 @@ steps:
 
 
 # STAGE Container Securiyty
+
+- stage: ContainerSecurity 
+  jobs:
+  - job: ContainerSecurity
+    displayName: 'ContainerSecurity'
+    steps:
 
 - task: Maven@4
   inputs:
