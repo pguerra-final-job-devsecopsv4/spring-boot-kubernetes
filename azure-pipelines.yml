@@ -12,7 +12,7 @@ stages:
 - stage: SAST 
   jobs:
   - job: SAST
-    displayName: 'SAST'
+    displayName: 'Analisis SAST'
     steps: 
     - task: Maven@4
       inputs:
@@ -95,14 +95,14 @@ stages:
         scanPath: '$(Build.SourcesDirectory)/target'
         format: 'ALL'
         reportsDirectory: '$(Build.SourcesDirectory)/dependency'
-    - script: |
-        variable=$(grep ",HIGH," $(Build.SourcesDirectory)/dependency/dependency-check-report.csv | wc -l)
-        echo $variable "HIGH Vulnerabilities detected with dependency-check"
-        if [ $variable -gt 0 ];
-        then 
-          echo "Stop pipeline execution because dependency check detected" $variable " > 0 HIGH Vulnerabilities"
-          exit 1;
-        fi;
+#    - script: |
+#        variable=$(grep ",HIGH," $(Build.SourcesDirectory)/dependency/dependency-check-report.csv | wc -l)
+#        echo $variable "HIGH Vulnerabilities detected with dependency-check"
+#        if [ $variable -gt 0 ];
+#        then 
+#          echo "Stop pipeline execution because dependency check detected" $variable " > 0 HIGH Vulnerabilities"
+#          exit 1;
+#        fi;
 
 ###########################################################################################
 #    - task: dependency-check-build-task@6
