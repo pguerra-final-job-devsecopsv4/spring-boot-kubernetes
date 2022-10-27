@@ -43,12 +43,6 @@ steps:
     format: 'HTML'
 
 
-stages:
-- stage: Test3
-  jobs:
-  - job: test3
-    steps:
-
 # STAGE Container Securiyty
 - task: DockerInstaller@0
   inputs:
