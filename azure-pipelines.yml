@@ -45,13 +45,16 @@ stages:
         effectivePomSkip: false
         sonarQubeRunAnalysis: true
         sqMavenPluginVersionChoice: 'latest'
-    - task: SonarCloudPublish@1
-      inputs:
-        pollingTimeoutSec: '300'
+
     - task: sonarcloud-buildbreaker@2
       inputs:
         SonarCloud: 'sonarcloud'
         organization: 'pguerra-final-job-devsecopsv4'
+    - task: SonarCloudPublish@1
+      inputs:
+        pollingTimeoutSec: '300'
+        displayName: 'Publish Analysis Results'
+
 
 ###########################################################################
 #    - task: Maven@4
